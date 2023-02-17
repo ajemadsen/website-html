@@ -18,4 +18,7 @@ printf "\n----> Deploying root website to $hostname with $key\n-----------------
 
 # Step 1 - Copy all files found in the current directory.
 printf "\n----> Copy the home page files to the target.\n"
+echo scp -r -i "$key" * ubuntu@$hostname:public_html/
 scp -r -i "$key" * ubuntu@$hostname:public_html/
+
+# ssh -i "$key" ubuntu@$hostname "chmod +r public_html/*"
